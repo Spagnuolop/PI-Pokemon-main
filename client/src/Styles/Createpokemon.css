@@ -1,0 +1,73 @@
+.create {
+  background-image: url("../imgs/detective.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  min-height: 100vh;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.cards {
+  flex-direction: column;
+  border: 2px solid black;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 520px;
+  width: 600px;
+  height: 550px;
+  background-color: rgba(244, 208, 63, 0.15);
+}
+
+.bars {
+  color: #ffcc03;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  vertical-align: top;
+  width: 60px;
+}
+
+.input {
+  padding: 3px;
+  background-color: #ffcc03;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  width: 250px;
+}
+
+.input:hover {
+  cursor: pointer;
+}
+
+.div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.option {
+  background-color: #ffcc03;
+}
+
+.btn1 {
+  width: 150px;
+  height: 40px;
+  background-color: red;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px 0 black;
+}
+
+.btn1:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 5px 0 rgb(182, 73, 73);
+  background-color: #cc0000;
+}

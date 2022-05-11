@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btnNav {
+  width: 40px;
+  background-color: #ec7c26;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  margin: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 3px 0 black;
+}
+
+.btnNav:hover {
+  cursor: pointer;
+}
+
+.btnNav:active {
+  transform: translateY(2px);
+}
+
+.btnSel {
+  width: 40px;
+  background-color: #75380a;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  margin: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 3px 0 black;
+  color: white;
+}

@@ -1,0 +1,65 @@
+.wall {
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/933/827/743/pokemon-pixel-art-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  height: 100vh;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 5px solid gold;
+  align-items: center;
+  width: 400px;
+  height: 570px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: large;
+  background-color: rgba(244, 208, 63, 0.4);
+  box-shadow: 5px 5px 10px black;
+}
+
+.names {
+  margin-bottom: 10px;
+}
+
+.titleCreate {
+  margin-top: -10px;
+  font-size: 45px;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  margin-top: -450px;
+  margin-left: 950px;
+}
+
+.imgs {
+  display: flex;
+  margin-left: 200px;
+  padding-top: 150px;
+  filter: drop-shadow(5px 5px 10px black);
+}
+
+.btnCreate {
+  width: 80px;
+  height: 35px;
+  background-color: #ec7c26;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin-top: 20px;
+  box-shadow: 0 3px 3px 0 black;
+}
+
+.btnCreate:hover {
+  cursor: pointer;
+}
+
+.btnCreate:active {
+  transform: translateY(2px);
+}
