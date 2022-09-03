@@ -146,7 +146,7 @@ export default function Home() {
         </select>
       </div>
       <SearchBar />
-      <div>
+      <div className="paginado">
         <Paginado
           pokemonPerPage={pokemonPerPage}
           pokemons1={pokemonsList.length}
@@ -154,7 +154,7 @@ export default function Home() {
           page={currentPage}
         />
       </div>
-      <div className="card">
+      <div>
         {currentPokemons?.map((element, index) => {
           return (
             <div key={index}>

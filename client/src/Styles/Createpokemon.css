@@ -71,3 +71,11 @@
   box-shadow: 0 5px 5px 0 rgb(182, 73, 73);
   background-color: #cc0000;
 }
+
+.errorinput {
+  color: red;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 11px;
+}

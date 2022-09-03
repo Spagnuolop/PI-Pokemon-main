@@ -3,21 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import "../Styles/Createpokemon.css";
 import createTitle from "../imgs/create.png";
 import { getTypes, newPokemon } from "../Actions";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import validaciones from "./CreatePokemonError";
 
 export const CreatePokemon = () => {
   const dispatch = useDispatch();
   const types = useSelector((state) => state.pokemonTypes);
-  const history = useNavigate();
   const [tipos, setTipos] = useState("");
+  const [errors, setErrors] = useState({});
   const [data, setData] = useState({
     name: "",
-    weight: 0,
-    height: 0,
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    speed: 0,
+    weight: "",
+    height: "",
+    hp: "",
+    attack: "",
+    defense: "",
+    speed: "",
     image: "",
     type: [],
   });
@@ -38,16 +39,26 @@ export const CreatePokemon = () => {
   }
 
   function handleInput(e) {
-    e.preventDefault();
-    data[e.target.name] = e.target.value;
-    setData(data);
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+    setErrors(validaciones(e.target.name, e.target.value, errors));
+  }
+
+  function CheckButton() {
+    if (!validaciones()) {
+      return false;
+    }
+    if (validaciones()) {
+      return true;
+    }
   }
 
   function handleSubmit(e) {
-    console.log(data);
+    e.preventDefault();
     dispatch(newPokemon(data));
     alert("Pokemon created successfully");
-    history("/home", { replace: false });
   }
 
   return (
@@ -64,13 +75,12 @@ export const CreatePokemon = () => {
               }}
               type="text"
               name="name"
-              id="name"
-              placeholder=""
-              required
-              pattern="[A-Za-z0-9]{4,20}"
+              value={data.name}
+              pattern="[A-Za-z0-9]"
               title="No se permiten caracteres especiales"
             />
           </div>
+          {errors.name && <p className="errorinput">{errors.name}</p>}
           <div className="div">
             <label className="bars">Weight:</label>
             <input
@@ -79,13 +89,12 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="number"
-              id="weight"
+              value={data.weight}
               name="weight"
               step="0.1"
-              placeholder=""
-              required
             />
           </div>
+          {errors.weight && <p className="errorinput">{errors.weight}</p>}
           <div className="div">
             <label className="bars">Height:</label>
             <input
@@ -94,13 +103,12 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="number"
-              id="height"
+              value={data.height}
               name="height"
               step="0.1"
-              placeholder=""
-              required
             />
           </div>
+          {errors.height && <p className="errorinput">{errors.height}</p>}
           <div className="div">
             <label className="bars">Hp:</label>
             <input
@@ -110,11 +118,10 @@ export const CreatePokemon = () => {
               }}
               type="number"
               name="hp"
-              id="hp"
-              placeholder=""
-              required
+              value={data.hp}
             />
           </div>
+          {errors.hp && <p className="errorinput">{errors.hp}</p>}
           <div className="div">
             <label className="bars">Attack:</label>
             <input
@@ -123,12 +130,11 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="number"
-              id="attack"
+              value={data.attack}
               name="attack"
-              placeholder=""
-              required
             />
           </div>
+          {errors.attack && <p className="errorinput">{errors.attack}</p>}
           <div className="div">
             <label className="bars">Defense:</label>
             <input
@@ -137,12 +143,11 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="number"
-              id="defense"
+              value={data.defense}
               name="defense"
-              placeholder=""
-              required
             />
           </div>
+          {errors.defense && <p className="errorinput">{errors.defense}</p>}
           <div className="div">
             <label className="bars">Speed:</label>
             <input
@@ -151,12 +156,11 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="number"
-              id="speed"
+              value={data.speed}
               name="speed"
-              placeholder=""
-              required
             />
           </div>
+          {errors.speed && <p className="errorinput">{errors.speed}</p>}
           <div className="div">
             <label className="bars">Type:</label>
             <select
@@ -185,16 +189,33 @@ export const CreatePokemon = () => {
                 handleInput(e);
               }}
               type="url"
-              id="image"
+              value={data.image}
               name="image"
-              placeholder=""
-              required
+              pattern="https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$"
             />
           </div>
+          {console.log(errors)}
           <div className="ubibtn">
-            <button className="btn1" type="submit">
-              Create Pokemon
-            </button>
+            {!data.name ||
+            !data.hp ||
+            !data.attack ||
+            !data.defense ||
+            !data.height ||
+            !data.weight ||
+            !data.speed ||
+            !data.image ||
+            !data.type ? (
+              <button className="btn1" type="submit" disabled="disabled">
+                Create Pokemon
+              </button>
+            ) : (
+              <button className="btn1" type="submit">
+                Create Pokemon
+              </button>
+            )}
+            <Link to="/home">
+              <button className="btn1">Return</button>
+            </Link>
           </div>
         </div>
       </div>

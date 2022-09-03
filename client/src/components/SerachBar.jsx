@@ -25,7 +25,6 @@ export default function SearchBar() {
       let poke = pokemonsList.filter(
         (pokemon) => pokemon.name === name.toLocaleLowerCase()
       );
-      console.log("Poke:", poke);
       if (poke.length === 0) {
         alert("Pokemon " + name + " not found");
       } else {
